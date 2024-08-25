@@ -107,12 +107,20 @@
         }
 
         function capitaliseAddress(ele){
-            splitStr = ele.value.split(/[,.]+/);
+            splitStr = ele.value.split(/[,]+/);
+
             for (var i = 0; i < splitStr.length; i++) {
-                splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+                if(splitStr[i].includes('.')){
+                    let subStrSplit = splitStr[i].split(/[.]+/);
+                    for (var j = 0; j < subStrSplit.length; j++) {
+                        subStrSplit[j] = subStrSplit[j].trim().charAt(0).toUpperCase() + subStrSplit[j].trim().substring(1).toLowerCase();
+                    }
+                    splitStr[i] = subStrSplit.join('. ');
+                } else {
+                    splitStr[i] = splitStr[i].trim().charAt(0).toUpperCase() + splitStr[i].trim().substring(1).toLowerCase();
+                }
             }
-            console.log(splitStr);
-            ele.value = splitStr.join(' ');
+            ele.value = splitStr.join(', ');
         }
     </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
