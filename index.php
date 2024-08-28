@@ -23,37 +23,37 @@
 
         <div class="row mt-4">
 
-            <form action="" method="post">
+            <form action="insert_script.php" method="post">
                 <h4 class="border-bottom">Basic Details</h4>
                 <div class="row">
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="First Last" onfocusout="capitaliseName(this)">
+                            <input type="text" class="form-control" id="floatingInput" name="userName" placeholder="First Last" onfocusout="capitaliseName(this)">
                             <label for="floatingInput">Full name</label>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" name="userEmail" placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
                     </div>
-                    <div class="col-1">D.O.B:</div>
+                    <div class="col-1 my-auto text-end">D.O.B:</div>
                     <div class="col-1">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="19-12-2022">
+                            <input type="number" class="form-control" id="floatingInput" name="userDOBDate" placeholder="19-12-2022">
                             <label for="floatingPassword">Date</label>
                         </div>
                     </div>
                     <div class="col-1">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="19-12-2022">
+                            <input type="number" class="form-control" id="floatingInput" name="userDOBMonth" placeholder="19-12-2022">
                             <label for="floatingPassword">Month</label>
                         </div>
                     </div>
                     <div class="col-1">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="19-12-2022">
+                            <input type="number" class="form-control" id="floatingInput" name="userDOBYear" placeholder="19-12-2022">
                             <label for="floatingPassword">Year</label>
                         </div>
                     </div>
@@ -63,35 +63,35 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="First Last">
+                            <input type="number" class="form-control" id="floatingInput" name="userPerCont" placeholder="First Last">
                             <label for="floatingInput">Phone number</label>
                         </div>
                     </div>
                     <div class="col-8">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="First Last" onfocusout="capitaliseAddress(this)">
+                            <input type="text" class="form-control" id="floatingInput" name="userPerAddr" placeholder="First Last" onfocusout="capitaliseAddress(this)">
                             <label for="floatingInput">Address</label>
                         </div>
                     </div>
                 </div>
 
-                <h4 class="border-bottom mt-4">Postal Address <button type="button" class="btn btn-secondary btn-sm ms-2">Same as permanent</button></h4>
+                <h4 class="border-bottom mt-4">Postal Address <button type="button" class="btn btn-secondary btn-sm ms-2" onclick="copyContactInformation()">Same as permanent</button></h4>
                 <div class="row">
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="First Last">
+                            <input type="number" class="form-control" id="floatingInput" name="userPosCont" placeholder="First Last">
                             <label for="floatingInput">Phone number</label>
                         </div>
                     </div>
                     <div class="col-8">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="First Last" onfocusout="capitaliseAddress(this)">
+                            <input type="text" class="form-control" id="floatingInput" name="userPosAddr" placeholder="First Last" onfocusout="capitaliseAddress(this)">
                             <label for="floatingInput">Address</label>
                         </div>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <input type="submit" class="btn btn-primary btn-lg" value="submit">
             </form>
 
         </div>
@@ -121,6 +121,11 @@
                 }
             }
             ele.value = splitStr.join(', ');
+        }
+
+        function copyContactInformation(){
+            document.getElementsByName('userPosCont')[0].value = document.getElementsByName('userPerCont')[0].value;
+            document.getElementsByName('userPosAddr')[0].value = document.getElementsByName('userPerAddr')[0].value;
         }
     </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
