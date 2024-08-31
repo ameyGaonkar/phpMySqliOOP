@@ -28,32 +28,32 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" name="userName" placeholder="First Last" onfocusout="capitaliseName(this)">
+                            <input type="text" class="form-control" id="floatingInput" name="userName" placeholder="First Last" onfocusout="capitaliseName(this)" required>
                             <label for="floatingInput">Full name</label>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" name="userEmail" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" name="userEmail" placeholder="name@example.com" required>
                             <label for="floatingInput">Email address</label>
                         </div>
                     </div>
                     <div class="col-1 my-auto text-end">D.O.B:</div>
                     <div class="col-1">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="floatingInput" name="userDOBDate" placeholder="19-12-2022">
+                            <input type="number" class="form-control" id="floatingInput" name="userDOBDate" placeholder="28" min="1" max="31" required>
                             <label for="floatingPassword">Date</label>
                         </div>
                     </div>
                     <div class="col-1">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="floatingInput" name="userDOBMonth" placeholder="19-12-2022">
+                            <input type="number" class="form-control" id="floatingInput" name="userDOBMonth" placeholder="08" min="1" max="12" required>
                             <label for="floatingPassword">Month</label>
                         </div>
                     </div>
                     <div class="col-1">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="floatingInput" name="userDOBYear" placeholder="19-12-2022">
+                            <input type="number" class="form-control" id="floatingInput" name="userDOBYear" placeholder="2004" min="1900" max="2006" required>
                             <label for="floatingPassword">Year</label>
                         </div>
                     </div>
@@ -63,13 +63,13 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingInput" name="userPerCont" placeholder="First Last">
+                            <input type="number" class="form-control" id="floatingInput" name="userPerCont" placeholder="98xxxxxx80" min="6000000000" max="9999999999" required>
                             <label for="floatingInput">Phone number</label>
                         </div>
                     </div>
                     <div class="col-8">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" name="userPerAddr" placeholder="First Last" onfocusout="capitaliseAddress(this)">
+                            <input type="text" class="form-control" id="floatingInput" name="userPerAddr" placeholder="Address" onfocusout="capitaliseAddress(this)" required>
                             <label for="floatingInput">Address</label>
                         </div>
                     </div>
@@ -79,13 +79,13 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingInput" name="userPosCont" placeholder="First Last">
+                            <input type="number" class="form-control" id="floatingInput" name="userPosCont" placeholder="75xxxxxx46" min="6000000000" max="9999999999" required>
                             <label for="floatingInput">Phone number</label>
                         </div>
                     </div>
                     <div class="col-8">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" name="userPosAddr" placeholder="First Last" onfocusout="capitaliseAddress(this)">
+                            <input type="text" class="form-control" id="floatingInput" name="userPosAddr" placeholder="Address" onfocusout="capitaliseAddress(this)" required>
                             <label for="floatingInput">Address</label>
                         </div>
                     </div>
