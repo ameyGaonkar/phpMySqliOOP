@@ -21,13 +21,13 @@
 
         if(!empty($_POST["userPerCont"]) && !empty($_POST["userPerAddr"]) && ($row["permanent_contact"] != $_POST["userPerCont"] || $row["permanent_address"] != $_POST["userPerAddr"])){
             $updatePermanent = $con->prepare("UPDATE contact_information SET contact = ?, address =  ? WHERE id = ? AND basic_id = ?");
-            $updatePermanent->bind_param("si",$_POST["userName"], $row["id"]);
+            $updatePermanent->bind_param("isii",$_POST["userPerCont"], $_POST["userPerAddr"], $row['permanent_id'], $row['id']);
             $updatePermanent->execute() ? $status+=4 : '';
         }
 
         if(!empty($row["postal_id"]) && ($row["postal_contact"] != $_POST["userPosCont"] || $row["postal_address"] != $_POST["userPosAddr"])){
             $updatePostal = $con->prepare("UPDATE contact_information SET contact = ?, address =  ? WHERE id = ? AND basic_id = ?");
-            $updatePostal->bind_param("si",$_POST["userName"], $row["id"]);
+            $updatePermanent->bind_param("isii",$_POST["userPosCont"], $_POST["userPosAddr"], $row['postal_id'], $row['id']);
             $updatePostal->execute() ? $status+=3 : '';
         } elseif(empty($row["postal_id"]) && !empty($_POST["userPosCont"]) && !empty($_POST["userPosAddr"]) && $_POST["userPosCont"] != $row["permanent_contact"] && $_POST["userPosAddr"] != $row["permanent_address"]){
             $insertPostal = $con->prepare("INSERT INTO contact_information (basic_id,type,contact,address) VALUES (?, 'POST', ?, ?)");
