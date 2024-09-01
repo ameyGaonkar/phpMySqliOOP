@@ -23,14 +23,31 @@
         </ul>
 
         <?php
-            if (isset($_GET['status']) && $_GET['status'] == 1){
+            if(isset($_GET['status']) && $_GET['status']>0){
+                if ($_GET['status'] == 1){
+                    $msg = "User data stored.";
+                } elseif($_GET['status'] == 5) {
+                    $msg = "Basic Information Updated.";
+                } elseif($_GET['status'] == 4 || $_GET['status'] == 3) {
+                    $msg = "Contact Information Updated.";
+                } elseif($_GET['status'] == 6 || $_GET['status'] == 10 || $_GET['status'] == 15) {
+                    $msg = "Postal contact details added & Information Updated.";
+                }
                 ?>
-                <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
-                    <strong>Success!</strong> User data stored.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                    <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                        <strong>Success!</strong> <?php echo $msg?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php
-            } 
+            } elseif(isset($_GET['status']) && $_GET['status'] == 0){
+                ?>
+                    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                        <strong>Something seems wrong!!</strong> User information could not be updated.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php
+            }
+
         ?>
 
         <div class="row mt-4">
