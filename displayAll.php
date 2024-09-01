@@ -69,7 +69,8 @@
                 $fetchStatement = $con->prepare("SELECT t1.id, t1.name, t1.email, t1.dob, t2.contact AS 'permanent_contact', t2.address AS 'permanent_address', t3.contact AS 'postal_contact', t3.address AS 'postal_address'
                                                     FROM basic_information t1 
                                                     LEFT JOIN contact_information t2 ON t1.id = t2.basic_id AND t2.type='Permanent' 
-                                                    LEFT JOIN contact_information t3 ON t1.id = t3.basic_id AND t3.type='Post'
+                                                    LEFT JOIN contact_information t3 ON t1.id = t3.basic_id AND t3.type='Post' 
+                                                    WHERE delete_status = 'N' 
                                                     ORDER BY t1.id DESC");
                 $fetchStatement->execute();
                 $result = $fetchStatement->get_result();
