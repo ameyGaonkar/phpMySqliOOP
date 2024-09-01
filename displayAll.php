@@ -32,6 +32,8 @@
                     $msg = "Contact Information Updated.";
                 } elseif($_GET['status'] == 6 || $_GET['status'] == 10 || $_GET['status'] == 15) {
                     $msg = "Postal contact details added & Information Updated.";
+                } elseif($_GET['status'] == 7) {
+                    $msg = "User has been deactivated.";
                 }
                 ?>
                     <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
