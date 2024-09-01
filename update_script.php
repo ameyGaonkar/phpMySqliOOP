@@ -29,7 +29,7 @@
             $updatePostal = $con->prepare("UPDATE contact_information SET contact = ?, address =  ? WHERE id = ? AND basic_id = ?");
             $updatePermanent->bind_param("isii",$_POST["userPosCont"], $_POST["userPosAddr"], $row['postal_id'], $row['id']);
             $updatePostal->execute() ? $status+=3 : '';
-        } elseif(empty($row["postal_id"]) && !empty($_POST["userPosCont"]) && !empty($_POST["userPosAddr"]) && $_POST["userPosCont"] != $row["permanent_contact"] && $_POST["userPosAddr"] != $row["permanent_address"]){
+        } elseif(empty($row["postal_id"]) && !empty($_POST["userPosCont"]) && !empty($_POST["userPosAddr"]) && ($_POST["userPosCont"] != $row["permanent_contact"] || $_POST["userPosAddr"] != $row["permanent_address"])){
             $insertPostal = $con->prepare("INSERT INTO contact_information (basic_id,type,contact,address) VALUES (?, 'POST', ?, ?)");
             $insertPostal->bind_param("iis", $row["id"], $_POST["userPosCont"], $_POST["userPosAddr"]);
             $insertPostal->execute() ? $status+=6 : '';
