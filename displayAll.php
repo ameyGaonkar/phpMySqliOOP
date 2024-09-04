@@ -75,13 +75,12 @@
                                                     WHERE delete_status = 'N' 
                                                     ORDER BY t1.id DESC");
                 $fetchStatement->execute();
-                $result = $fetchStatement->get_result();
-                $index = 1;
-                if($result->num_rows > 0){
-                    while($row = $result->fetch_assoc()) {
+                $result = $fetchStatement->fetchALL(PDO::FETCH_ASSOC);
+                if(count($result) > 0){
+                    foreach($result as $index=>$row) {
                         ?>
                             <tr>
-                                <td><?php echo $index; ?>.</td>
+                                <td><?php echo $index+1; ?>.</td>
                                 <td>
                                     <div class="list-group">
                                         <a href="#" class="list-group-item list-group-item-action">
@@ -122,7 +121,6 @@
                                 </td>
                             </tr>
                         <?php
-                        $index++;
                     }
                 }
             ?>
