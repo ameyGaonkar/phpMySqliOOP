@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>People</title>
-    </head>
-    <body>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>People</title>
+</head>
+
+<body>
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -18,6 +20,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="displayAll.php">Display Data</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Testing</a>
             </li>
         </ul>
 
@@ -98,19 +103,19 @@
     </div>
 
     <script>
-        function capitaliseName(ele){
+        function capitaliseName(ele) {
             splitStr = ele.value.split(' ');
             for (var i = 0; i < splitStr.length; i++) {
-                splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1).toLowerCase();     
+                splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1).toLowerCase();
             }
             ele.value = splitStr.join(' ');
         }
 
-        function capitaliseAddress(ele){
+        function capitaliseAddress(ele) {
             splitStr = ele.value.split(/[,]+/);
 
             for (var i = 0; i < splitStr.length; i++) {
-                if(splitStr[i].includes('.')){
+                if (splitStr[i].includes('.')) {
                     let subStrSplit = splitStr[i].split(/[.]+/);
                     for (var j = 0; j < subStrSplit.length; j++) {
                         subStrSplit[j] = subStrSplit[j].trim().charAt(0).toUpperCase() + subStrSplit[j].trim().substring(1).toLowerCase();
@@ -123,12 +128,13 @@
             ele.value = splitStr.join(', ');
         }
 
-        function copyContactInformation(){
+        function copyContactInformation() {
             document.getElementsByName('userPosCont')[0].value = document.getElementsByName('userPerCont')[0].value;
             document.getElementsByName('userPosAddr')[0].value = document.getElementsByName('userPerAddr')[0].value;
         }
     </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+</body>
+
 </html>
